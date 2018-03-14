@@ -1,16 +1,16 @@
-function f = a7_function(x, n)
-f = 0;
+function f = a7_function(n)
+f = @(x) 0;
 for i = 1:n
-    F_i = x(i) - 1;
-    f = f + F_i ^ 2;
+    F_i = @(x) x(i) - 1;
+    f = @(x) f(x) + F_i(x) ^ 2;
 end
-F_n1 = 0;
+F_n1 = @(x) 0;
 for j = 1:n
-    F_n1 = F_n1 + j * (x(j) - 1);
+    F_n1 = @(x) F_n1(x) + j * (x(j) - 1);
 end
 
-f = f + F_n1 ^ 2;
-F_n2 = F_n1^2;
-f = f + F_n2^ 2;
+f = @(x) f(x) + F_n1(x) ^ 2;
+F_n2 = @(x) F_n1(x)^2;
+f = @(x) f(x) + F_n2(x)^ 2;
 
 end

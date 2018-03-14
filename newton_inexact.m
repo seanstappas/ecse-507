@@ -1,25 +1,28 @@
-function [x, k] = newton_inexact(x0, norm_func, epsilon, grad_func, c1, c2, ...
-    grad2_func, p, f_func, sigma, beta, rho)
+function [x, k] = newton_inexact(f, x0, epsilon, c1, c2, p, sigma, beta, rho)
 
 k = 0;
 x = x0;
-while norm_func(x) > epsilon
-    grad_val = grad_func(x);
-    eta = min([c1 / (k + 1), c2 * norm_func(x)]);
+[grad_val, ~] = gradest(f, x);
+grad_val = grad_val.';
+n = norm(grad_val);
+while n > epsilon
+    eta = min([c1 / (k + 1), c2 * n]);
 
     % CG method (to solve inexact Newton equation)
-    d = cg(grad2_func(x), -grad_val, -grad_val, ...
-        eta * norm_func(x));
+    [hess, ~] = hessian(f, x);
+    d = cg(hess, -grad_val, -grad_val, eta * n);
 
     if grad_val' * d > - rho * (norm(d)^p)
         d = -grad_val;
     end
 
     % Armijo update
-    t = armijo(f_func, x, sigma, grad_val, d, beta);
+    t = armijo(f, x, sigma, grad_val, d, beta);
 
     x = x + t*d;
     k = k + 1;
-    disp(k);
+    [grad_val, ~] = gradest(f, x);
+    grad_val = grad_val.';
+    n = norm(grad_val);
 end
 end
