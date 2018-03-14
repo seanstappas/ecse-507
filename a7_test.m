@@ -1,8 +1,6 @@
-x = sym('x', [1, 100]).';
-
 function_names = ["Rosenbrock", "f(x) (n = 10)", "f(x) (n = 100)"];
-functions = [f_rosenbrock(x) a7_function(x, 10) a7_function(x, 100)];
-x0_rosenbrock = [[-1.2; 1; 0]; zeros(100 - 3, 1)];
+functions = {f_rosenbrock() a7_function(10) a7_function(100)};
+x0_rosenbrock = [-1.2; 1; 0];
 x0s = [x0_rosenbrock a7_function_x0(10) a7_function_x0(100)];
 
 epsilon = 1e-6;
@@ -15,15 +13,6 @@ c2 = 1;
 
 for i = 2:2
     f = functions(i);
-    
-    grad = gradient(f, x);
-    n = norm(grad);
-    grad2 = jacobian(grad, x);
-
-    f_func = matlabFunction(f, 'Vars', {x});
-    grad_func = matlabFunction(grad, 'Vars', {x});
-    grad2_func = matlabFunction(grad2, 'Vars', {x});
-    norm_func = matlabFunction(n, 'Vars', {x});
     
     x0 = x0s(:,i);
     [x_k, k] = newton_inexact(x0, norm_func, epsilon, grad_func, c1, ...
