@@ -1,0 +1,54 @@
+\documentclass[a4paper,titlepage]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[format=plain,font=it]{caption}
+\usepackage{minted}
+
+
+\setminted{linenos,breaklines,fontsize=auto}
+
+\begin{document}
+	
+	\section{Code Listings}
+	
+	\begin{center}
+		\captionof{listing}{\texttt{a7.m}.}
+		\inputminted{matlab}{a7.m}
+	\end{center}
+
+	\begin{center}
+		\captionof{listing}{\texttt{f\_rosenbrock.m}.}
+		\inputminted{matlab}{f_rosenbrock.m}
+	\end{center}
+
+	\begin{center}
+		\captionof{listing}{\texttt{a7\_function.m}.}
+		\inputminted{matlab}{a7_function.m}
+	\end{center}
+
+	\newpage
+
+	\begin{center}
+		\captionof{listing}{\texttt{a7\_function\_x0.m}.}
+		\inputminted{matlab}{a7_function_x0.m}
+	\end{center}
+
+	\begin{center}
+		\captionof{listing}{\texttt{newton\_inexact.m}.}
+		\inputminted{matlab}{newton_inexact.m}
+	\end{center}
+
+	\begin{center}
+		\captionof{listing}{\texttt{armijo.m}.}
+		\inputminted{matlab}{armijo.m}
+	\end{center}
+	
+	\newpage
+
+	\begin{center}
+		\captionof{listing}{\texttt{cg.m}.}
+		\inputminted{matlab}{cg.m}
+	\end{center}
+\end{document}
+
+
