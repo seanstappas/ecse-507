@@ -45,3 +45,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.aux
+a7_code.pdf
+*.pygtex
+_minted-a7_code/default-pyg-prefix.pygstyle
