@@ -7,13 +7,11 @@ switch function_index
     case 1
         f = f_rosenbrock();
         x0 = [-1.2; 1];
-        x_range = [-1.5, 1.5];
-        y_range = [-0.5, 2];
+        x_range = [-1.5, 1.5, -0.5, 2];
     case 2
         f = f_himmelblau();
         x0 = [4; 4];
-        x_range = [-6, 6];
-        y_range = [-6, 6];
+        x_range = [-6, 6, -6, 6];
     otherwise
         disp("Invalid function.");
         return;
@@ -31,38 +29,38 @@ switch method_index
     case 1
         disp("Gradient method");
         [x, k, x_ks] = gradient_method(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range, y_range);
+        display_solution(f, x, k, x_ks, x_range);
     case 2
         disp("Globalized Newton's method");
         [x, k, x_ks] = newton_global(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range, y_range);
+        display_solution(f, x, k, x_ks, x_range);
     case 3
         disp("Globalized BFGS method");
         [x, k, x_ks] = bfgs_global(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range, y_range);
+        display_solution(f, x, k, x_ks, x_range);
     case 4
         disp("Globalized inexact Newton's method");
         [x, k, x_ks] = newton_inexact(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range, y_range);
+        display_solution(f, x, k, x_ks, x_range);
     case 5
         disp("Fletcher-Reeves method");
     case 6
         disp("----------------------------------")
         disp("Gradient method");
         [x, k, x_ks] = gradient_method(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range, y_range);
+        display_solution(f, x, k, x_ks, x_range);
         disp("----------------------------------")
         disp("Globalized Newton's method");
         [x, k, x_ks] = newton_global(f, x0, epsilon);
-        display_solution(f, x, k, x_ks);
+        display_solution(f, x, k, x_ks, x_range);
         disp("----------------------------------")
         disp("Globalized BFGS method");
         [x, k, x_ks] = bfgs_global(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range, y_range);
+        display_solution(f, x, k, x_ks, x_range);
         disp("----------------------------------")
         disp("Globalized inexact Newton's method");
         [x, k, x_ks] = newton_inexact(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range, y_range);
+        display_solution(f, x, k, x_ks, x_range);
         disp("----------------------------------")
         disp("Fletcher-Reeves method");
         disp("----------------------------------")
