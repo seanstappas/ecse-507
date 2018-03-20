@@ -27,37 +27,37 @@ method_index = input('Choose the minimization method. ');
 switch method_index
     case 1
         disp("Gradient method");
-        [x, k, x_ks] = gradient_method(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range);
+        [x, k] = gradient_method(f, x0, epsilon);
+        display_solution(f, x, k);
     case 2
         disp("Globalized Newton's method");
-        [x, k, x_ks] = newton_global(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range);
+        [x, k] = newton_global(f, x0, epsilon);
+        display_solution(f, x, k);
     case 3
         disp("Globalized BFGS method");
-        [x, k, x_ks] = bfgs_global(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range);
+        [x, k] = bfgs_global(f, x0, epsilon);
+        display_solution(f, x, k);
     case 4
         disp("Globalized inexact Newton's method");
-        [x, k, x_ks] = newton_inexact(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range);
+        [x, k] = newton_inexact(f, x0, epsilon);
+        display_solution(f, x, k);
     case 5
         disp("----------------------------------")
         disp("Gradient method");
-        [x, k, x_ks] = gradient_method(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range);
+        [x, k] = gradient_method(f, x0, epsilon);
+        display_solution(f, x, k);
         disp("----------------------------------")
         disp("Globalized Newton's method");
-        [x, k, x_ks] = newton_global(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range);
+        [x, k] = newton_global(f, x0, epsilon);
+        display_solution(f, x, k);
         disp("----------------------------------")
         disp("Globalized BFGS method");
-        [x, k, x_ks] = bfgs_global(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range);
+        [x, k] = bfgs_global(f, x0, epsilon);
+        display_solution(f, x, k);
         disp("----------------------------------")
         disp("Globalized inexact Newton's method");
-        [x, k, x_ks] = newton_inexact(f, x0, epsilon);
-        display_solution(f, x, k, x_ks, x_range);
+        [x, k] = newton_inexact(f, x0, epsilon);
+        display_solution(f, x, k);
     otherwise
         disp('Invalid minimization method.');
 end

@@ -1,4 +1,4 @@
-function [x, k, x_ks] = bfgs_global(f, x0, epsilon)
+function [x, k] = bfgs_global(f, x0, epsilon)
 sigma = 1e-4;
 rho = 0.9;
 H_0 = eye(size(x0, 1));
@@ -7,7 +7,6 @@ gamma = 2;
 
 k = 0;
 x = x0;
-x_ks = {x0};
 H = H_0;
 grad_val = gradest(f, x).';
 n = norm(grad_val);
@@ -45,7 +44,6 @@ while n > epsilon
     
     x_old = x;
     x = x + t_i*d;
-    x_ks{end + 1} = x;
     grad_val_new = gradest(f, x).';
     s = x - x_old;
     y = grad_val_new - grad_val;
