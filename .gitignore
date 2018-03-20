@@ -49,3 +49,5 @@ Temporary Items
 a7_code.pdf
 *.pygtex
 _minted-a7_code/default-pyg-prefix.pygstyle
+*.pygstyle
+a7_code.synctex.gz
