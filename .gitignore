@@ -51,3 +51,4 @@ a7_code.pdf
 _minted-a7_code/default-pyg-prefix.pygstyle
 *.pygstyle
 a7_code.synctex.gz
+*.gz
