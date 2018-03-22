@@ -5,10 +5,16 @@ disp("2. Himmelblau function");
 function_index = input('Choose the function to be minimized. ');
 switch function_index
     case 1
+        disp("==================================");
+        disp("       Rosenbrock function        ");
+        disp("==================================");
         f = f_rosenbrock();
         x0 = [-1.2; 1];
         x_range = [-1.5, 1.5, -0.5, 2];
     case 2
+        disp("==================================");
+        disp("       Himmelblau function        ");
+        disp("==================================");
         f = f_himmelblau();
         x0 = [4; 4];
         x_range = [-6, 6, -6, 6];
@@ -16,7 +22,6 @@ switch function_index
         disp("Invalid function.");
         return;
 end
-disp(function_index);
 
 disp("1. Gradient method");
 disp("2. Globalized Newton's method");
