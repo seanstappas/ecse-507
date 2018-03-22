@@ -10,14 +10,12 @@ switch function_index
         disp('==================================');
         f = f_rosenbrock();
         x0 = [-1.2; 1];
-        x_range = [-1.5, 1.5, -0.5, 2];
     case 2
         disp('==================================');
         disp('       Himmelblau function        ');
         disp('==================================');
         f = f_himmelblau();
         x0 = [4; 4];
-        x_range = [-6, 6, -6, 6];
     otherwise
         disp('Invalid function.');
         return;
